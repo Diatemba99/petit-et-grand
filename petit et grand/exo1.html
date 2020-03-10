@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> </title>
+	<style type="text/css">
+		#mart
+		{
+			font-size: 250px;
+			text-align: center;
+			color:green;
+		}
+		#petit
+		{
+			font-size: 15px;
+			text-align: center;
+			color:green;
+		}
+
+	</style>
+</head>
+<body>
+	<span id="mart"></span>
+	<span id="martp"></span>
+
+<div id="but" onclick="grand()">MARTIN</div> <br>
+
+<div id="but2" onclick="petit()">petit</div> <br>
+
+<script>
+	function grand()
+	{
+     document.getElementById('mart').innerHTML="MARTIN";
+    }
+
+	function petit()
+	{
+document.getElementById('martp').innerHTML="MARTIN";
+document.getElementById('mart').innerHTML="";
+     
+	}
+
+</script>
+</body>
+</html>
