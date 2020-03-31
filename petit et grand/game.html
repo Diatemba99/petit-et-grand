@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script>
+	
+       //pour commencer a jouer il faut ouvrir la console du navigateur
+       // pour ouvir la console tu fais un click droit 
+       //apres tu vas dans inspecter
+       //et enfin tu verras  une partie sur laquelle on a ecrit console 
+
+       //************************notes**********************
+       //************************notes**********************
+       
+       //console.log permet d'afficher un message sur la console
+       //prompt  permet d'afficher un message sur le navigateur
+       //elle est imperativement affectee a une variable afin de recuperer la valeur saisie
+       //window.exit() est une fonction qui permet de quitter le jeu et fermer la boite de dialogue
+
+        
+       //en ouvrant la console tant que tu ne vois la partie deco sache que tu n'as pas bien ouvert le jeu
+       //Arrete le chargement de la page et reactulise afin d'obtenir la partie deco sur ta console 
+       //debut de la deco
+       console.log("----------------------------------");
+       console.log("------------DEVINETTE GAME--------");
+       console.log("----------------------------------");
+       console.log("Vous avez 5 tentives pour trouver le nombre mystere");
+      // fin de la deco et debut du game
+         alert("Merci d'ouvrir la console de votre navigateur pour jouer en appuyant sur * f12 * ou * fn+f12 *") 
+         var nom = prompt("Entrer votre nom");
+         game();
+
+    // debut de la fonction main du game
+             function game() 
+               {
+                  var devine=0;
+                  var coups=0;
+                  // fonction generant le nbr mystere
+                  var nbrmyst=Math.floor(Math.random() *100) + 1;
+                  // tu peux enlever alert(nbrmyst); c'etait juste un texte pour connaitre le nombre mystere
+                  alert(nbrmyst);
+                 for (var i = 0; i <5; i++) 
+                 {
+
+
+		                   var devine=prompt("Entrer un nombre compris entre 1 et 100");
+		                   // nombre de coups durant la partie
+		                   coups++;
+
+
+		                  // condition pour dire que la valeur est grande
+		                  if (devine<nbrmyst) 
+			                  {
+			                    console.log(devine + ' est petit  ');
+			                  }
+
+
+		                  // condition pour dire que la valeur est grande
+		                  if (devine>nbrmyst) 
+			                  {
+			                    console.log(devine + ' est grand ');
+			                  }
+
+
+		                  // condition vraie pour trouver le nbr myster
+		                  if (devine==nbrmyst) 
+			                  {
+			                    console.log('Bravo!!');
+			                    console.log(nom + ' vous avez gagne avec ' + coups + ' coups' );
+			                    // il a gagne le niveau 1 c'est la raison pour laquelle il passe au niveau 2
+			                    niveau2();
+			                  }
+
+
+		                  // conditions sur le game over
+		                  if (coups==5) 
+			                  {
+			                    console.log( nom + ' vous avez perdu la reponse était ' + nbrmyst);
+			                    //il a perdu c'est la raison pour laquelle on lui demande rejouer 
+			                    restart();
+			                  }     
+		                }
+                     }
+       // Fin de la fonction game 
+
+
+       //la fonction restart demande au joueur s'il veut rejouer
+       //elle est aleatoire tu peux la supprimer si tu veux
+
+//*********************************************************************************************************************
+//************************         la fonction qui permet de rejouer         ******************************************
+//*********************************************************************************************************************
+
+
+        function restart()
+           {
+
+	         var rejouer=prompt("Voulez vous rejouer [O/N]"); 
+	         
+	         if (rejouer=='o' || rejouer=='O') 
+		           {
+		           game();
+		     //s'il est d'accord il rejoue      
+		           }
+	         else if (rejouer=='n' || rejouer=='N') 
+		          {
+		         window.exit();
+		     //sinon le game s'arrete definitivement    
+
+		          }
+           }
+
+//*********************************************************************************************************************
+//************************************           code pour le niveau 2       ******************************************
+//*********************************************************************************************************************
+
+            function niveau2()
+                {
+                  alert("Bravo et bienvenue sur le niveau 2");
+                  alert("Attention ici le nombre mystere varie entre 101 et 500");
+                  // alert(nbrmyst);
+
+                  var devine=0;
+                  var coups=0;
+                  // fonction generant le nbr mystere
+                  var nbrmyst=Math.floor(Math.random() *400) + 101;
+                  // tu peux enlever alert(nbrmyst); c'etait juste un texte pour connaitre le nombre mystere
+                  alert(nbrmyst);
+	                 for (var i = 0; i <5; i++) 
+	                 {
+
+
+		                   var devine=prompt("Entrer un nombre compris entre 101 et 500");
+		                   // nombre de coups durant la partie
+		                   coups++;
+
+
+		                  // condition pour dire que la valeur est grande
+		                  if (devine<nbrmyst) 
+			                  {
+			                    console.log(devine + ' est petit  ');
+			                  }
+
+
+		                  // condition pour dire que la valeur est grande
+		                  if (devine>nbrmyst) 
+			                  {
+			                    console.log(devine + ' est grand ');
+			                  }
+
+
+		                  // condition vraie pour trouver le nbr myster
+		                  if (devine==nbrmyst) 
+			                  {
+			                    console.log('Bravo!!');
+			                    console.log(nom + ' vous avez gagne avec ' + coups + ' coups' );
+			                    // il a gagne le niveau 2 c'est la raison pour laquelle il passe au niveau 3
+			                    niveau3();
+			                    // break;
+			                  }
+
+
+		                  // conditions sur le game over
+		                  if (coups==5) 
+			                  {
+			                     console.log( nom + ' vous avez perdu la reponse était ' + nbrmyst);
+			                    //il a perdu c'est la raison pour laquelle on lui demande rejouer 
+			                     restart();
+			                  }
+		                 
+		             }
+                 }    
+
+//*********************************************************************************************************************
+//************************************          code pour le niveau 3        ******************************************
+//*********************************************************************************************************************
+			function niveau3() 
+				{
+                  alert("Bravo et bienvenue sur le niveau 3, la derniere partie");
+                  alert("Attention ici le nombre mystere varie entre 101 et 1000");
+ 	              var devine=0;
+                  var coups=0;
+                  // fonction generant le nbr mystere
+                  var nbrmyst=Math.floor(Math.random() *900) + 101;
+                  // tu peux enlever alert(nbrmyst); c'etait juste un texte pour connaitre le nombre mysterer
+                  alert(nbrmyst);
+
+                 for (var i = 0; i <5; i++) 
+                 {
+
+
+		                   var devine=prompt("Entrer un nombre compris entre 101 et 1000");
+		                   // nombre de coups durant la partie
+		                   coups++;
+
+
+		                  // condition pour dire que la valeur est grande
+		                  if (devine<nbrmyst) 
+			                  {
+			                    console.log(devine + ' est petit  ');
+			                  }
+
+
+		                  // condition pour dire que la valeur est grande
+		                  if (devine>nbrmyst) 
+			                  {
+			                    console.log(devine + ' est grand ');
+			                  }
+
+
+		                  // condition vraie pour trouver le nbr myster
+		                  if (devine==nbrmyst) 
+			                  {
+			                    console.log('Bravo vous aez fini le game!!');
+			                    console.log(nom + ' vous avez gagne avec ' + coups + ' coups' );
+			                    exit();
+			                  }
+
+
+		                  // conditions sur le game over
+		                  if (coups==5) 
+			                  {
+			                    console.log( nom + ' vous avez perdu la reponse était ' + nbrmyst);
+			                    //il a perdu c'est la raison pour laquelle on lui demande rejouer 
+			                     restart();
+			                  }
+		            }
+                }    
+
+
+
+
+	
+</script>
+</body>
+</html>
